@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "attested"
+version = "0.0.1"
+description = "Check that work actually happened. Independent verification for AI agent claims."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Jon Rogers" }]
+keywords = ["ai", "agents", "llm", "verification", "trust", "testing"]
+
+# No dependencies, deliberately. This package's job is to be trusted, and the
+# shortest path to that is having nothing in the checking path that the caller
+# did not already audit. Standard library only, and it stays that way.
+dependencies = []
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/jonrogers2015/attested"
+Source = "https://github.com/jonrogers2015/attested"
+Issues = "https://github.com/jonrogers2015/attested/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["attested"]
+
+[tool.hatch.build.targets.sdist]
+include = ["attested", "tests", "README.md", "LICENSE"]
